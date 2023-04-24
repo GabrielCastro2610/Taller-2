@@ -1,0 +1,29 @@
+@startuml
+left to right direction
+skin rose
+
+entity Sistema {
+libros
+socios
+}
+
+entity Libros {
+título
+autor
+categoría
+}
+
+entity Socios {
+Nombre
+Número de socios
+Lista de libros que tomó prestados
+}
+
+Sistema "1" --> "1...*" Socios: Presta librosy permite al usuario ingresar
+Socios "1" --> "1" Sistema: Ingresa número de socio y contraseña
+Socios "1...*" --> "1...*" Libros: leen
+Libros "1...*" --> "1" Sistema: Son devueltos
+
+' TODO: Add the domain model
+
+@enduml
